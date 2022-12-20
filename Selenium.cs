@@ -24,7 +24,7 @@ namespace Instagram_follower_dumper
         }
         public void giris_yap()
         {
-            krom.FindElement(By.CssSelector("[class='_ab8w  _ab94 _ab99 _ab9f _ab9m _ab9p _abcm']")).Click();
+            krom.FindElement(By.CssSelector("[class='_acan _acap _acas _aj1-']")).Click();
         }
         public void profili_ac(string kullanici_adi)
         {
@@ -115,12 +115,6 @@ namespace Instagram_follower_dumper
               
             Array.Sort(dizi);
             Array.Sort(dizi2);
-            while (Array.IndexOf(dizi2,"Doğrulanmış")!=-1)
-            {
-                int sırası = Array.IndexOf(dizi2, "Doğrulanmış");
-                dizi2[sırası] = " ";
-            }
-            
 
             if (dizi.Length > dizi2.Length)
             {
