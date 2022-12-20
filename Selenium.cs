@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Markup;
 namespace Instagram_follower_dumper
 {
 
@@ -54,10 +55,13 @@ namespace Instagram_follower_dumper
                     break;
                 }
             }
-
+            
             IReadOnlyCollection<IWebElement> takipci = krom.FindElements(By.CssSelector("[class='_aacl _aaco _aacw _aacx _aad7 _aade']"));
             int sayac = 1;
-            StreamWriter sw = new StreamWriter("C:\\Users\\Batuhan\\Desktop\\takipci_listesi.txt");
+            string username = "C:\\Users\\"+Environment.UserName+"\\Desktop\\takipci_listesi.txt";
+            
+            
+            StreamWriter sw = new StreamWriter(username);
             foreach (IWebElement takipciler in takipci)
             {
                 Console.WriteLine(sayac + "==>" + takipciler.Text);
@@ -90,10 +94,11 @@ namespace Instagram_follower_dumper
                     break;
                 }
             }
-
+            
             IReadOnlyCollection<IWebElement> takipci = krom.FindElements(By.CssSelector("[class=' _ab8y  _ab94 _ab97 _ab9f _ab9k _ab9p _abcm']"));
             int sayac = 1;
-            StreamWriter sw = new StreamWriter("C:\\Users\\Batuhan\\Desktop\\takip_edilen_listesi.txt");
+            string username = "C:\\Users\\" + Environment.UserName + "\\Desktop\\takip_edilen_listesi.txt";
+            StreamWriter sw = new StreamWriter(username);
             foreach (IWebElement takipciler in takipci)
             {
 
@@ -107,20 +112,16 @@ namespace Instagram_follower_dumper
         }
         public void karsilastir()
         {
-            StreamWriter sw = new StreamWriter("C:\\Users\\Batuhan\\Desktop\\takip_etmeyenler.txt");
+            string username = "C:\\Users\\" + Environment.UserName + "\\Desktop\\Gt_Atmayanlar_Listesi.txt";
+            StreamWriter sw = new StreamWriter(username);
 
-
-            string[] dizi = File.ReadAllLines("C:\\Users\\Batuhan\\Desktop\\takipci_listesi.txt");
-            string[] dizi2 = File.ReadAllLines("C:\\Users\\Batuhan\\Desktop\\takip_edilen_listesi.txt");
+            string username1 = "C:\\Users\\" + Environment.UserName + "\\Desktop\\takipci_listesi.txt";
+            string[] dizi = File.ReadAllLines(username1);
+            string username2 = "C:\\Users\\" + Environment.UserName + "\\Desktop\\takip_edilen_listesi.txt";
+            string[] dizi2 = File.ReadAllLines(username2);
               
             Array.Sort(dizi);
             Array.Sort(dizi2);
-            while (Array.IndexOf(dizi2,"Doğrulanmış")!=-1)
-            {
-                int sırası = Array.IndexOf(dizi2, "Doğrulanmış");
-                dizi2[sırası] = " ";
-            }
-            
 
             if (dizi.Length > dizi2.Length)
             {
