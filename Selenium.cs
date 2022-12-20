@@ -23,7 +23,7 @@ namespace Instagram_follower_dumper
             krom.FindElement(By.CssSelector("input[name='username']")).SendKeys(kullanici_adi);
             krom.FindElement(By.CssSelector("input[name='password']")).SendKeys(sifre);
         }
-        public void giris_yap()
+        public void Giris_yap()
         {
             krom.FindElement(By.CssSelector("[class='_ab8w  _ab94 _ab99 _ab9f _ab9m _ab9p _abcm']")).Click();
         }
@@ -31,12 +31,12 @@ namespace Instagram_follower_dumper
         {
             krom.Navigate().GoToUrl("https://www.instagram.com/" + kullanici_adi + "/");
         }
-        public void takipci_gir()
+        public void Takipci_gir()
         {
             string urlm = krom.Url;
             krom.Navigate().GoToUrl(urlm + "followers");
         }
-        public void takipcileri_cek()
+        public void Takipcileri_cek()
         {
             //js code
             string jscommand = "" + "sayfa=document.querySelector('._aano');" + "sayfa.scrollTo(0,sayfa.scrollHeight);" + "var sayfasonu=sayfa.scrollHeight;" + "return sayfasonu;";
@@ -72,11 +72,11 @@ namespace Instagram_follower_dumper
             sw.Close();
 
         }
-        public void following_gir(string kullanici_adi)
+        public void Following_gir(string kullanici_adi)
         {
             krom.Navigate().GoToUrl("https://www.instagram.com/" + kullanici_adi + "/following/");
         }
-        public void following_cek()
+        public void Following_cek()
         {
             string jscommand = "" + "sayfa=document.querySelector('._aano');" + "sayfa.scrollTo(0,sayfa.scrollHeight);" + "var sayfasonu=sayfa.scrollHeight;" + "return sayfasonu;";
             //
@@ -110,7 +110,7 @@ namespace Instagram_follower_dumper
             sw.Close();
             krom.Close();
         }
-        public void karsilastir()
+        public void Karsilastir()
         {
             string username = "C:\\Users\\" + Environment.UserName + "\\Desktop\\Gt_Atmayanlar_Listesi.txt";
             StreamWriter sw = new StreamWriter(username);
@@ -122,6 +122,11 @@ namespace Instagram_follower_dumper
               
             Array.Sort(dizi);
             Array.Sort(dizi2);
+            while (Array.IndexOf(dizi2,"Doğrulanmış")!=-1)
+            {
+                int sıra = Array.IndexOf(dizi2, "Doğrulanmış");
+                dizi2[sıra] = " ";
+            }
 
             if (dizi.Length > dizi2.Length)
             {

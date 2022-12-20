@@ -21,19 +21,19 @@ namespace Instagram_follower_dumper
             a.Instagram();
             Thread.Sleep(1500);
             a.SifreGir(kullanici_adi,sifre);
-            a.giris_yap();
+            a.Giris_yap();
             Thread.Sleep(5500);
             a.profili_ac(kullanici_adi);
             Thread.Sleep(1500);
-            a.takipci_gir();
+            a.Takipci_gir();
             Thread.Sleep(1500);
-            a.takipcileri_cek();
+            a.Takipcileri_cek();
             Thread.Sleep(1500);
-            a.following_gir(kullanici_adi);
+            a.Following_gir(kullanici_adi);
             Thread.Sleep(2500);
-            a.following_cek();
+            a.Following_cek();
             Thread.Sleep(2500);
-            a.karsilastir();
+            a.Karsilastir();
             Thread.Sleep(2500);
             
             
